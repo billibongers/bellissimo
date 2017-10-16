@@ -5,6 +5,12 @@
     "bootstrap": "3.3.7",
     "jquery": "2.2.0",
     "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6"
+    "jquery-validation-unobtrusive": "3.2.6",
+    "polymer": "1.9.0",
+    "iron-ajax": "2.0.5"
+
+  },
+  "resolutions": {
+    "webcomponentsjs": "^v1.0.2"
   }
 }
