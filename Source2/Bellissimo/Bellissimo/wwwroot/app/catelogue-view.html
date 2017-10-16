@@ -1,8 +1,9 @@
 ﻿<link rel="import" href="../lib/polymer/polymer.html" />
 <link rel="import" href="../lib/paper-card/paper-card.html" />
+<link rel="import" href="../lib/iron-ajax/iron-ajax.html" />
 
 
-<dom-module id="catalogue-view">
+<dom-module id="catelogue-view">
     <style></style>
     <template>
 
@@ -29,18 +30,19 @@
 
         Polymer({
 
-            is: 'catalogue-view',
+            is: 'catelogue-view',
 
             properties: {
 
             },
 
             ready: function () {
-                //this.getCatelogueUrl = "/Catelogue"; 
+                debugger; 
+                this.getCatelogueUrl = "/Catalogue/GetAllCatalogue"; 
             },
 
-            _catalogueData: function () {
-
+            _catalogueData: function (e) {
+                debugger; 
             }
         }); 
     </script>
