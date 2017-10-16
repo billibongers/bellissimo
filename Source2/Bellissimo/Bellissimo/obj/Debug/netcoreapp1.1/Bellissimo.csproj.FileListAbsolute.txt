@@ -1,0 +1,12 @@
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\bin\Debug\netcoreapp1.1\Bellissimo.deps.json
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\bin\Debug\netcoreapp1.1\Bellissimo.runtimeconfig.json
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\bin\Debug\netcoreapp1.1\Bellissimo.runtimeconfig.dev.json
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\bin\Debug\netcoreapp1.1\Bellissimo.dll
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\bin\Debug\netcoreapp1.1\Bellissimo.pdb
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\obj\Debug\netcoreapp1.1\Bellissimo.csprojResolveAssemblyReference.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\obj\Debug\netcoreapp1.1\Bellissimo.csproj.CoreCompileInputs.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\obj\Debug\netcoreapp1.1\Bellissimo.AssemblyInfoInputs.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\obj\Debug\netcoreapp1.1\Bellissimo.AssemblyInfo.cs
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\obj\Debug\netcoreapp1.1\Bellissimo.dll
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Bellissimo\Bellissimo\obj\Debug\netcoreapp1.1\Bellissimo.pdb
