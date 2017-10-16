@@ -18,6 +18,16 @@ namespace Bellissimo.Data
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //connectionString= (@"Server=129.232.181.10;Database=AbujaCallCenter;UID=acc;PWD=acc;");
+            //initial migrations on mock empty db
+            //string connectionString = @"Data Source=129.232.181.10;Initial Catalog=TanzaniaRUC;User ID=sa;Password=UAisawesome01";
+            string connectionString = @"Data Source=BILAL\SQLEXPRESS; Database = Bellissimo; Trusted_Connection = True; MultipleActiveResultSets = true";
+            //string connectionString = @"Server=197.189.215.26,1433;Database=SWHCallCenter;uid=swh;pwd=UAisawesome01";
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

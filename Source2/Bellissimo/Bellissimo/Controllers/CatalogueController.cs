@@ -41,7 +41,7 @@ namespace Bellissimo.Controllers
                 }
                 catch (Exception e)
                 {
-                    return Json(e);
+                    return Json(e + "It reached here...");
                 }
             }
         }

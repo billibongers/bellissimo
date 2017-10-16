@@ -14,17 +14,19 @@
                    content-type="application/json"
                    on-response="_catalogueData"></iron-ajax>
 
-        <div style="display:flex; flex-direction:row; flex-basis:100%">
-            <paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-                <div class="card-content">
-                    Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-                </div>
-                <div class="card-actions">
-                    <paper-button>Share</paper-button>
-                    <paper-button>Explore!</paper-button>
-                </div>
-            </paper-card>
-        </div>
+        <template is="dom-repeat" items="{{catalogueList}}">
+            <div style="display:flex; flex-direction:row; flex-basis:100%">
+                <paper-card heading="{{item.title}}" image="./images/{{item.path}}.jpg" alt="Emmental">
+                    <div class="card-content">
+                        <p>{{item.description}}</p> 
+                        <p>{{item.price}}</p>
+                    </div>
+                    <div class="card-actions">
+                        <paper-button>Add to cart</paper-button>
+                    </div>
+                </paper-card>
+            </div>
+        </template>
     </template>
     <script>
 
@@ -33,7 +35,8 @@
             is: 'catelogue-view',
 
             properties: {
-
+                getCatelogueUrl: {type: String}, 
+                catalogueList: {type: Array}
             },
 
             ready: function () {
@@ -43,6 +46,7 @@
 
             _catalogueData: function (e) {
                 debugger; 
+                this.set('catalogueList', e.detail.response)
             }
         }); 
     </script>
