@@ -8,9 +8,10 @@ using Bellissimo.Data;
 namespace Bellissimo.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171016210633_addingBankBal")]
+    partial class addingBankBal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -74,8 +75,6 @@ namespace Bellissimo.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description");
-
-                    b.Property<bool>("OnSpecial");
 
                     b.Property<string>("Path");
 

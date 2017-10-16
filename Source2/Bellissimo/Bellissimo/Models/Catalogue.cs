@@ -10,7 +10,13 @@ namespace Bellissimo.Models
     {
         [Key]
         public int Id { get; set; }
-        
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
+        public double PromoPrice { get; set; }
+        public string Path { get; set; }
+        public bool OnSpecial { get; set; }
+
 
     }
 }
