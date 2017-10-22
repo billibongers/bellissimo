@@ -10,5 +10,6 @@ namespace Bellissimo.Models
     public class ApplicationUser : IdentityUser
     {
         public double BankBalance { get; set; }
+        public string Sales { get; set; }
     }
 }

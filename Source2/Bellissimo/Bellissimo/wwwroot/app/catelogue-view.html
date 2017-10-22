@@ -1,10 +1,49 @@
 ﻿<link rel="import" href="../lib/polymer/polymer.html" />
 <link rel="import" href="../lib/paper-card/paper-card.html" />
 <link rel="import" href="../lib/iron-ajax/iron-ajax.html" />
+<link rel="import" href="../lib/paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="../lib/iron-icon/iron-icon.html" />
+<link rel="import" href="../lib/iron-icons/iron-icons.html" />
+<link rel="import" href="../lib/paper-button/paper-button.html" />
+<link rel="import" href="../lib/paper-dialog/paper-dialog.html"/>
+<link rel="import" href="../lib/iron-list/iron-list.html"/>
+<link rel="import" href="../lib/paper-fab/paper-fab.html"/>
+<link rel="import" href="../lib/paper-material/paper-material.html" />
+<link rel="import" href="../lib/paper-toast/paper-toast.html" />
 
 
 <dom-module id="catelogue-view">
-    <style></style>
+    
+        <style>
+            paper-card {
+                --paper-card-header-color: #ffffff;
+                --paper-card-header-background: black;
+                --paper-card-header-width: 100%;
+                width: 50%;
+                margin: auto;
+            }
+
+            .customScroll::-webkit-scrollbar {
+                width: 5px;
+                height: 5px;
+                color: #772953 ;
+            }
+
+            .customScroll::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                border-radius: 10px;
+                padding-bottom: 10%;
+                padding: 5px;
+            }
+
+            .customScroll::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: #772953 ;
+                border-color: #E3F2FD ;
+            }
+
+        </style>
+    
     <template>
 
         <iron-ajax auto
@@ -13,20 +52,114 @@
                    method="GET"
                    content-type="application/json"
                    on-response="_catalogueData"></iron-ajax>
+        
+        <iron-ajax auto
+                   id="getUserList"
+                   url="{{getUserUrl}}"
+                   method="GET"
+                   content-type="application/json"
+                   on-response="_userData"></iron-ajax>
+        
+        <iron-ajax auto
+                   id="getUserHistory"
+                   url="{{getUserHistoryUrl}}"
+                   method="GET"
+                   content-type="application/json"
+                   on-response="_userHistoryData"></iron-ajax>
+        
+            <div style="display:flex; flex-direction:row; flex-basis:100%; height:80vh">
+                <div class="customScroll" style="display:flex; flex-direction:column; flex-basis:100%; flex:2 0 0; overflow:auto">
+                    <template is="dom-repeat" items="{{catalogueList}}">
+                        <paper-card heading="{{item.title}}" id="{{item.title}}" name="{{item.price}}" image="../images/{{item.path}}.jpg" alt="Image Unavailable" $class="white" style="width: 80%; margin: auto; padding: 10px;--paper-card-header-color: #FFA000;">
+                            <div class="card-actions">
+                                <p>{{item.description}}</p>
+                                <p>Price: R{{item.price}}</p>
+                                <paper-button raised heading="{{item.title}}" name="{{item.price}}" on-click="_addToCart"><iron-icon icon="add-shopping-cart"></iron-icon>Add to Cart</paper-button>
+                                <!--<paper-button heading="{{item.title}}" name="{{item.price}}" on-click="_removeFromCart"><iron-icon icon="remove-shopping-cart"></iron-icon>Remove</paper-button>-->
+                            </div>
+                        </paper-card>
+                        <br />
+                    </template>
+                </div>
+          
+                <div style="display:flex; flex-direction:column; flex-basis:100%; flex:1 0 0;">
+                    <paper-material elevation="5" style="width:90%; margin:auto;padding: 10px;">
+                        <div style="display:flex; flex-direction:row; background-color:#689F38">
+                            <div style="flex:2 0 0">
+                                <h4>Your Balance</h4>
+                            </div>
+                            <div style="flex:1 0 0">
+                                <h4>R {{userBalance}}</h4>
+                            </div>
+                            <div style="flex:1 0 0">
+                                <paper-button style="background-color:#FFC107" raised on-click="_checkOut"><iron-icon icon="shopping-basket"></iron-icon></paper-button>
+                            </div>
+                        </div>
+                        <div>
+                            <hr style="width:100%; height:1px" />
+                        </div>
+                        <div>
+                            <template is="dom-repeat" items="{{basketList}}">
+                                <div style="display:flex; flex-direction:row; flex-basis:100%">
+                                    <div style="flex:2 0 0">
+                                        <p>{{item.name}}</p>
+                                    </div>
+                                    <div style="flex:1 0 0">
+                                        <p>R{{item.price}}</p>
+                                    </div>
+                                    <div style="flex:1 0 0">
+                                        <paper-button style="background-color:#F44336" raised heading="{{item.name}}" name="{{item.price}}" on-click="_removeFromCart"><iron-icon icon="remove-shopping-cart"></iron-icon></paper-button>
 
-        <template is="dom-repeat" items="{{catalogueList}}">
-            <div style="display:flex; flex-direction:row; flex-basis:100%">
-                <paper-card heading="{{item.title}}" image="./images/{{item.path}}.jpg" alt="Emmental">
-                    <div class="card-content">
-                        <p>{{item.description}}</p> 
-                        <p>{{item.price}}</p>
+                                    </div>
+                                </div>
+                                
+                            </template>
+                        </div>
+                        
+                        <div>
+                            <hr style="width:100%; height:1px" />
+                            <div style="display:flex; flex-direction:row; background-color:#4CAF50">
+                                <div style="flex:2 0 0">
+                                    <p>Total</p>
+                                </div>
+                                <div style="flex:1 0 0">
+                                    <p>R{{cartTotal}}</p>
+                                </div>
+                                <div style="flex:1 0 0">
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <paper-button raised on-click="openPop"><iron-icon icon="history"></iron-icon>Sales History</paper-button>
+                        </div>
+
+                    </paper-material>
+                </div>
+        </div>
+
+        <paper-toast id="toast0" text="{{message}}"></paper-toast>
+       
+        <paper-dialog id="history"; style="width:500px; padding:10px">
+            <h2>History</h2>
+            <paper-dialog-scrollable>
+                <template is="dom-repeat" items="{{userHistoryList}}">
+                    <div style="display:flex; flex-direction:row; flex-basis:100%">
+                        <div style="flex:2 0 0">
+                            <p>{{item.name}}</p>
+                        </div>
+                        <div style="flex:1 0 0">
+                            <p>R{{item.price}}</p>
+                        </div>
+                        
                     </div>
-                    <div class="card-actions">
-                        <paper-button>Add to cart</paper-button>
-                    </div>
-                </paper-card>
+                </template>
+            </paper-dialog-scrollable>
+            <div class="buttons">
+                <paper-button raised dialog-dismiss>OK</paper-button>
             </div>
-        </template>
+        </paper-dialog>
     </template>
     <script>
 
@@ -35,18 +168,87 @@
             is: 'catelogue-view',
 
             properties: {
-                getCatelogueUrl: {type: String}, 
-                catalogueList: {type: Array}
+                getCatelogueUrl: { type: String }, 
+                getUserUrl: { type: String },
+                catalogueList: { type: Array },
+                basketList: { type: Array, value: [] },
+                userBalance: { type: Number },
+
+                isAdmin: { type: Boolean, value: true }, 
+
+                cartTotal: { type: Number, value: 0 },
+                message: { type: String, value: "" },
+                getUserHistoryUrl: { type: String },
+                userHistoryList: { type: Array,value: [] }
             },
 
             ready: function () {
-                debugger; 
+              
                 this.getCatelogueUrl = "/Catalogue/GetAllCatalogue"; 
+                this.getUserUrl = "/Catalogue/GetUserBalance";
+                this.getUserHistoryUrl = "/Catalogue/SalesHistory"; 
+                //this.basketList = [{"name":"Bilal", "price":"On Request"}];
             },
 
             _catalogueData: function (e) {
+                this.set('catalogueList', e.detail.response);
+            },
+
+            _userData: function (e) {
+                this.set('userBalance', e.detail.response);
+            },
+
+            _addToCart: function (e) {
+                var obj = { "name": e.target.heading, "price": e.target.name };
+                this.push('basketList', obj);
+
+                this._cartTotal(); 
+            },
+
+            _removeFromCart: function (e) {
+                var index = e.model.index;
+                this.splice('basketList', index, 1);
+                this._cartTotal(); 
+            },
+
+            _cartTotal: function () {
+                var temp = 0;
+                var _th = this; 
+                for (var i = 0; i < this.basketList.length; i++) {
+                    temp += _th.basketList[i].price; 
+                }
+
+                this.cartTotal = temp; 
+            },
+            _openEdit1A: function () {
+                debugger;
+                this.$.module1AEdit.open();
+            },
+
+            _checkOut: function () {
+                var _th = this;
+                $.post("/Catalogue/MakePayment", { total: _th.cartTotal, s: _th.basketList }, function (result) {
+                    debugger; 
+                    _th.message = result;
+                    _th.$.toast0.open();
+
+                    if (result == "Success: Your Payment has been recieved.") {
+                        _th.set('basketList', []);
+                        _th.cartTotal = 0; 
+                        _th.$.getUserList.generateRequest();
+                        _th.$.getUserHistory.generateRequest();
+                    }
+                });
+                
+
+            },
+            _userHistoryData: function (e) {
                 debugger; 
-                this.set('catalogueList', e.detail.response)
+                this.set('userHistoryList', e.detail.response); 
+            },
+
+            openPop: function () {
+                this.$.history.open();
             }
         }); 
     </script>
