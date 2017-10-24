@@ -1,0 +1,13 @@
+entity Catalogue {
+	id Id
+	title String
+    description String
+    price Double
+    onspecial Boolean
+    specialPrice Double
+}
+
+
+
+
+

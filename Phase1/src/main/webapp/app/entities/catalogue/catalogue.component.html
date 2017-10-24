@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span>Catalogues</span>
+        <button class="btn btn-primary float-right jh-create-entity create-catalogue" [routerLink]="['/', { outlets: { popup: ['catalogue-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Catalogue
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="catalogues">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Title</span></th>
+            <th><span>Description</span></th>
+            <th><span>Price</span></th>
+            <th><span>Onspecial</span></th>
+            <th><span>Special Price</span></th>
+            <th><span>Path</span></th>
+            <th><span>Valid</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let catalogue of catalogues ;trackBy: trackId">
+                <td><a [routerLink]="['../catalogue', catalogue.id ]">{{catalogue.id}}</a></td>
+                <td>{{catalogue.title}}</td>
+                <td>{{catalogue.description}}</td>
+                <td>{{catalogue.price}}</td>
+                <td>{{catalogue.onspecial}}</td>
+                <td>{{catalogue.specialPrice}}</td>
+                <td>{{catalogue.path}}</td>
+                <td>{{catalogue.valid}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../catalogue', catalogue.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'catalogue/'+ catalogue.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'catalogue/'+ catalogue.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

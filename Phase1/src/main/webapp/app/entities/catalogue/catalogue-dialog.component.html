@@ -1,0 +1,60 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCatalogueLabel">Create or edit a Catalogue</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!catalogue.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="catalogue.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="catalogue.title"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="catalogue.description"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                [(ngModel)]="catalogue.price"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_onspecial">Onspecial</label>
+            <input type="checkbox" class="form-control" name="onspecial" id="field_onspecial"
+                [(ngModel)]="catalogue.onspecial"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_specialPrice">Special Price</label>
+            <input type="number" class="form-control" name="specialPrice" id="field_specialPrice"
+                [(ngModel)]="catalogue.specialPrice"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_path">Path</label>
+            <input type="text" class="form-control" name="path" id="field_path"
+                [(ngModel)]="catalogue.path"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_valid">Valid</label>
+            <input type="checkbox" class="form-control" name="valid" id="field_valid"
+                [(ngModel)]="catalogue.valid"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

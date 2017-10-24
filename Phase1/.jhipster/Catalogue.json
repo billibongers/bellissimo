@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "onspecial",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "specialPrice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "path",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valid",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20171016183916",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "catalogue",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
