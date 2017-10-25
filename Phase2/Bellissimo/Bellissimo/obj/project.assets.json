@@ -10958,11 +10958,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bilal\\Documents\\school2017\\push_up\\bellissimo\\Source2\\Bellissimo\\Bellissimo\\Bellissimo.csproj",
+      "projectUniqueName": "C:\\Users\\Bilal\\Documents\\school2017\\push_up\\bellissimo\\Phase2\\Bellissimo\\Bellissimo\\Bellissimo.csproj",
       "projectName": "Bellissimo",
-      "projectPath": "C:\\Users\\Bilal\\Documents\\school2017\\push_up\\bellissimo\\Source2\\Bellissimo\\Bellissimo\\Bellissimo.csproj",
+      "projectPath": "C:\\Users\\Bilal\\Documents\\school2017\\push_up\\bellissimo\\Phase2\\Bellissimo\\Bellissimo\\Bellissimo.csproj",
       "packagesPath": "C:\\Users\\Bilal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bilal\\Documents\\school2017\\push_up\\bellissimo\\Source2\\Bellissimo\\Bellissimo\\obj\\",
+      "outputPath": "C:\\Users\\Bilal\\Documents\\school2017\\push_up\\bellissimo\\Phase2\\Bellissimo\\Bellissimo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bilal\\AppData\\Roaming\\NuGet\\NuGet.Config",
